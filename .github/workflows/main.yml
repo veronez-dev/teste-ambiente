@@ -7,11 +7,14 @@ on:
             options:
               - homologacao
               - producao
+          url:
+            type: string
+            default: "https://google.com"
 jobs:
     deploy-fake:
         environment: 
             name: ${{ inputs.ambiente }}
-            url: "https://google.com"
+            url: ${{ inputs.url }}
 
         runs-on: ubuntu-latest
         steps:
