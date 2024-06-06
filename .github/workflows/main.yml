@@ -9,6 +9,7 @@ jobs:
             - name: Fake de deploy em ambiente
               run: echo "Deploy no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
     deploy-fake-producao:
+      needs: [deploy-fake-homologacao]
       environment: producao
       runs-on: ubuntu-latest
       steps:
