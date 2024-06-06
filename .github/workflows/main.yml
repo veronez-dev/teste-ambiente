@@ -1,7 +1,12 @@
-
 name: CD Fake
 on: 
-    workflow_dispatch: 
+    workflow_dispatch:
+        inputs:
+          ambiente:
+            type: choice
+            options:
+              - homologacao
+              - producao
 jobs:
     deploy-fake:
         environment: homologacao
