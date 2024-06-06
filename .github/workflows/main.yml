@@ -9,7 +9,10 @@ on:
               - producao
 jobs:
     deploy-fake:
-        environment: ${{ inputs.ambiente }}
+        environment: 
+            name: ${{ inputs.ambiente }}
+            url: "https://google.com"
+
         runs-on: ubuntu-latest
         steps:
             - name: Fake de deploy em ambiente
