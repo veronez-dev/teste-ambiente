@@ -1,22 +1,16 @@
 name: CD Fake
 on: 
     workflow_dispatch:
-        inputs:
-          ambiente:
-            type: choice
-            options:
-              - homologacao
-              - producao
-          url:
-            type: string
-            default: "https://google.com"
 jobs:
-    deploy-fake:
-        environment: 
-            name: ${{ inputs.ambiente }}
-            url: ${{ inputs.url }}
-
+    deploy-fake-homologacao:
+        environment: homologacao
         runs-on: ubuntu-latest
         steps:
             - name: Fake de deploy em ambiente
               run: echo "Deploy no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
+    deploy-fake-producao:
+      environment: producao
+      runs-on: ubuntu-latest
+      steps:
+          - name: Fake de deploy em ambiente
+            run: echo "Deploy no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
