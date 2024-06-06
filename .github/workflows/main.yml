@@ -9,7 +9,7 @@ on:
               - producao
 jobs:
     deploy-fake:
-        environment: homologacao
+        environment: ${{ inputs.ambiente }}
         runs-on: ubuntu-latest
         steps:
             - name: Fake de deploy em ambiente
